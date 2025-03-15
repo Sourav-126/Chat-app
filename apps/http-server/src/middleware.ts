@@ -1,11 +1,10 @@
-import express, { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-
-const app = express();
+import { JWT_SECRET } from "@repo/backend-common/config";
 
 export const middleware = (req: Request, res: Response, next: NextFunction) => {
   const token = req.headers["authorization"] ?? "";
-  const decoded = jwt.verify(token, process.env.JWR_SECRET!!);
+  const decoded = jwt.verify(token, JWT_SECRET);
 
   if (decoded) {
     //@ts-ignore

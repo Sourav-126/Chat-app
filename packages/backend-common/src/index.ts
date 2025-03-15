@@ -9,7 +9,6 @@ export const signUpObject = z.object({
 });
 export const signInObject = z.object({
   email: z.string(),
-  password: z.string(),
 });
 
 export const createRoomObject = z.object({

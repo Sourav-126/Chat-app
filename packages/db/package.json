@@ -1,7 +1,11 @@
 {
-  "name": "db",
+  "name": "@repo/db",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
+  "exports": {
+    "./client": "./src/index.ts"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
