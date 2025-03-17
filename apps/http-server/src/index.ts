@@ -91,6 +91,20 @@ app.post("/room", middleware, async (req, res) => {
   }
 });
 
+app.get("/room/:roomId", async (req, res) => {
+  const roomId = Number(req.params.roomId);
+
+  await prismaClient.chat.findMany({
+    where: {
+      roomId: roomId,
+    },
+    orderBy: {
+      id: "desc",
+    },
+    take: 50,
+  });
+});
+
 app.listen(1212, () => {
   console.log("Started the server at port 1212");
 });
